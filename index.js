@@ -42,4 +42,9 @@ io.on('connection', (socket) => {
         io.sockets.emit('chat', data);
     });
 
+    // Handle typing event
+    socket.on('typing', function(data){
+        socket.broadcast.emit('typing', data);
+    });
+
 });
