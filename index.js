@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
     
     //html sync
     socket.on('xml',function(data){
-        socket.broadcast.emit('html', data);
+        socket.broadcast.emit('xml', data);
     });
     
     
