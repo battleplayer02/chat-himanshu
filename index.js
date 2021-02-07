@@ -53,5 +53,11 @@ io.on('connection', (socket) => {
         users.push(data);
         io.sockets.emit('username', users);
     });
+    
+    socket.on('html',function(data){
+        io.sockets.emit('html', data);
+    });
+    
+    
 
 });
