@@ -50,8 +50,8 @@ io.on('connection', (socket) => {
     
     //code-share
     socket.on('username',function(data){
-        user.push(data);
-        io.sockets.emit('username', user);
+        users.push(data);
+        io.sockets.emit('username', users);
     });
 
 });
