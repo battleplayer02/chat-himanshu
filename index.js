@@ -54,8 +54,9 @@ io.on('connection', (socket) => {
         io.sockets.emit('username', users);
     });
     
+    //html sync
     socket.on('html',function(data){
-        io.sockets.emit('html', data);
+        socket.broadcast.emit('html', data);
     });
     
     
