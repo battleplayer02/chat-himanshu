@@ -49,7 +49,7 @@ io.on('connection', (socket) => {
     
     //code-share
     socket.on('username',function(data){
-        socket.broadcast.emit('username', data);
+        io.sockets.emit('username', data);
     });
 
 });
