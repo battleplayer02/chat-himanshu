@@ -46,5 +46,10 @@ io.on('connection', (socket) => {
     socket.on('typing', function(data){
         socket.broadcast.emit('typing', data);
     });
+    
+    //code-share
+    socket.on('username',function(data){
+        socket.broadcast.emit('username', data);
+    });
 
 });
