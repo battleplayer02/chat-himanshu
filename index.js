@@ -32,6 +32,7 @@ app.use(function (req, res, next) {
 
 // Socket setup & pass server
 var io = socket(server);
+var users = [];
 io.on('connection', (socket) => {
 
     console.log('made socket connection', socket.id);
@@ -49,7 +50,8 @@ io.on('connection', (socket) => {
     
     //code-share
     socket.on('username',function(data){
-        io.sockets.emit('username', data);
+        user.push(data);
+        io.sockets.emit('username', user);
     });
 
 });
