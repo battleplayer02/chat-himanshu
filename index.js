@@ -68,5 +68,9 @@ io.on('connection', (socket) => {
     socket.on('javascript',function(data){
         socket.broadcast.emit('javascript', data);
     });
-    
+
+    //message 
+    socket.on('code-share-message',function(data){
+        socket.emit('code-share-message', data);
+    });
 });
