@@ -73,4 +73,15 @@ io.on('connection', (socket) => {
     socket.on('code-share-message',function(data){
        socket.emit('code-share-message', data);
     });
+    
+    //handel disconnect
+    socket.on('disconnect',function(data){
+       users.filter(item=>{
+           if(item === data){}
+           else{
+            return item;
+           }
+       });
+    });
+    
 });
