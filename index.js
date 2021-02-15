@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
     //code-share
     socket.on('username',function(data){
         users.push(data);
-        io.sockets.emit('username', users);
+        socket.emit('username', users);
     });
     
     //html sync
@@ -82,6 +82,7 @@ io.on('connection', (socket) => {
             return item;
            }
        });
+		socket.emit('username',users);
     });
     
 });
