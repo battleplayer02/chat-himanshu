@@ -56,17 +56,17 @@ io.on('connection', (socket) => {
 
     //html sync
     socket.on('xml',function(data){
-        socket.emit('xml', data);
+        socket.broadcast.emit('xml', data);
     });
 
     //css sync
     socket.on('css',function(data){
-        socket.emit('css', data);
+        socket.broadcast.emit('css', data);
     });
 
     //javascript sync
     socket.on('javascript',function(data){
-        socket.emit('javascript', data);
+        socket.broadcast.emit('javascript', data);
     });
 
     //message
