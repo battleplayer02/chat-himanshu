@@ -47,18 +47,18 @@ io.on('connection', (socket) => {
     socket.on('typing', function(data){
         socket.broadcast.emit('typing', data);
     });
-    
+
     //code-share
     socket.on('username',function(data){
         users.push(data);
         io.sockets.emit('username', users);
     });
-    
+
     //html sync
     socket.on('xml',function(data){
         socket.broadcast.emit('xml', data);
     });
-    
+
     //css sync
     socket.on('css',function(data){
         socket.broadcast.emit('css', data);
@@ -69,14 +69,14 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('javascript', data);
     });
 
-    //message 
+    //message
     socket.on('code-share-message',function(data){
        socket.emit('code-share-message', data);
     });
-    
+
     //handel disconnect
-    socket.on('disconnect',function(data){
-       io.sockets.emit('dis',data);
+    socket.on('disconnect',function(){
+       io.sockets.emit('dis',socket.id);
     });
-    
+
 });
