@@ -74,10 +74,10 @@ io.on('connection', (socket) => {
        socket.emit('code-share-message', data);
     });
 
-    //handel disconnect
-    // socket.on('disconnect',function(){
-    //   users.splice(users.findIndex(e => e.id === socket.id),1);
-    //   socket.emit('username', users);
-    // });
+    // handel disconnect
+    socket.on('disconnect',function(){
+      users.splice(users.findIndex(e => e.id === socket.id),1);
+      socket.emit('username', users);
+    });
 
 });
