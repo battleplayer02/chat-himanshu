@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
     //code-share
     socket.on('username',function(data){
         users.push(data);
-        io.sockets.emit('username', users);
+        socket.emit('username', users);
     });
 
     //html sync
@@ -75,9 +75,9 @@ io.on('connection', (socket) => {
     });
 
     //handel disconnect
-    socket.on('disconnect',function(){
-      users.splice(users.findIndex(e => e.id === socket.id),1);
-      socket.emit('username', users);
-    });
+    // socket.on('disconnect',function(){
+    //   users.splice(users.findIndex(e => e.id === socket.id),1);
+    //   socket.emit('username', users);
+    // });
 
 });
