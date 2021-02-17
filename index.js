@@ -76,13 +76,7 @@ io.on('connection', (socket) => {
     
     //handel disconnect
     socket.on('disconnect',function(data){
-       users.filter(item=>{
-           if(item === data){}
-           else{
-            return item;
-           }
-       });
-       io.sockets.emit('username',users);
+       io.sockets.emit('dis',data);
     });
     
 });
