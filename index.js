@@ -76,10 +76,10 @@ io.on('connection', (socket) => {
 
     //handel disconnect
     socket.on('disconnect',function(){
-      users = users.filter(item=>{
+      var temp = users.filter(item=>{
         if(item.id !== socket.id) return item;
       });
-
+      users = temp;
       io.sockets.emit('username', users);
     });
 
