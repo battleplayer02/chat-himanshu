@@ -49,8 +49,8 @@ io.on('connection', (socket) => {
     });
     
     //code-share
-    socket.on('username',function(data,id){
-        users.push(id);
+    socket.on('username',function(data){
+        users.push(data);
         io.sockets.emit('username', users);
     });
     
