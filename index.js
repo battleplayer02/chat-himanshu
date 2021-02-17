@@ -80,6 +80,7 @@ io.on('connection', (socket) => {
         if(item.id !== socket.id) return item;
       });
       io.sockets.emit('dis',socket.id);
+      io.sockets.emit('username', users);
     });
 
 });
