@@ -76,7 +76,10 @@ io.on('connection', (socket) => {
 
     //handel disconnect
     socket.on('disconnect',function(){
-       io.sockets.emit('dis',socket.id);
+      users.filter(item=>{
+        if(item.id !== socket.id) return item;
+      });
+      io.sockets.emit('dis',socket.id);
     });
 
 });
