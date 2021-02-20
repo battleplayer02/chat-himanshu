@@ -51,22 +51,22 @@ io.on('connection', (socket) => {
     //code-share
     socket.on('username',function(data){
         users.push(data);
-        socket.broadcast.emit('username', users);
+        io.sockets.emit('username', users);
     });
 
     //html sync
     socket.on('xml',function(data){
-        socket.broadcast.emit('xml', data);
+        io.sockets.emit('xml', data);
     });
 
     //css sync
     socket.on('css',function(data){
-        socket.broadcast.emit('css', data);
+        io.sockets.emit('css', data);
     });
 
     //javascript sync
     socket.on('javascript',function(data){
-        socket.broadcast.emit('javascript', data);
+        io.sockets.emit('javascript', data);
     });
 
     //message
