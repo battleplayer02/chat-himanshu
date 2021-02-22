@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
   //code-share
   socket.on('username', function (data) {
     users.push(data);
-    socket.broadcast.emit('username-new', users);
+    io.sockets.emit('username-new', users);
   });
 
   //html sync
