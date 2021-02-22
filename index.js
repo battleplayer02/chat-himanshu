@@ -3,8 +3,8 @@ var socket = require('socket.io');
 const port = process.env.PORT || 3000
 // App setup
 var app = express();
-var server = app.listen(port, function(){
-    console.log('listening for requests on port 4000,');
+var server = app.listen(port, function () {
+  console.log('listening for requests on port 4000,');
 });
 
 // Static files
@@ -35,49 +35,49 @@ var io = socket(server);
 var users = [];
 io.on('connection', (socket) => {
 
-    console.log('made socket connection', socket.id);
+  console.log('made socket connection', socket.id);
 
-    // Handle chat event
-    socket.on('chat', function(data){
-        // console.log(data);
-        io.sockets.emit('chat', data);
-    });
+  // Handle chat event
+  socket.on('chat', function (data) {
+    // console.log(data);
+    io.sockets.emit('chat', data);
+  });
 
-    // Handle typing event
-    socket.on('typing', function(data){
-        socket.broadcast.emit('typing', data);
-    });
+  // Handle typing event
+  socket.on('typing', function (data) {
+    socket.broadcast.emit('typing', data);
+  });
 
-    //code-share
-    socket.on('username',function(data){
-        users.push(data);
-        io.sockets.emit('username', users);
-    });
+  //code-share
+  socket.on('username', function (data) {
+    users.push(data);
+    io.sockets.emit('username', users);
+  });
 
-    //html sync
-    socket.on('xml',function(data){
-        io.sockets.emit('xml', data);
-    });
+  //html sync
+  socket.on('xml', function (data) {
+    socket.broadcast.emit('xml', data);
+  });
 
-    //css sync
-    socket.on('css',function(data){
-        io.sockets.emit('css', data);
-    });
+  //css sync
+  socket.on('css', function (data) {
+    socket.broadcast.emit('css', data);
+  });
 
-    //javascript sync
-    socket.on('javascript',function(data){
-        io.sockets.emit('javascript', data);
-    });
+  //javascript sync
+  socket.on('javascript', function (data) {
+    socket.broadcast.emit('javascript', data);
+  });
 
-    //message
-    socket.on('code-share-message',function(data){
-       socket.emit('code-share-message', data);
-    });
+  //message
+  socket.on('code-share-message', function (data) {
+    socket.emit('code-share-message', data);
+  });
 
-    // handel disconnect
-    socket.on('disconnect',function(){
-      users.splice(users.findIndex(e => e.id === socket.id),1);
-      socket.emit('username', users);
-    });
+  // handel disconnect
+  socket.on('disconnect', function () {
+    users.splice(users.findIndex(e => e.id === socket.id), 1);
+    socket.emit('username', users);
+  });
 
 });
