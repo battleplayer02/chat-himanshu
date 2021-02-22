@@ -70,7 +70,7 @@ io.on('connection', (socket) => {
   });
 
   //message
-  socket.on('code-share-message', function (data) {
+  socket.on('code-share-message-to-server', function (data) {
     io.emit('code-share-message', data);
     
   });
