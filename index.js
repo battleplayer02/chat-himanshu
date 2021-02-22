@@ -71,13 +71,9 @@ io.on('connection', (socket) => {
 
   //message
   socket.on('code-share-message', function (data) {
-    socket.emit('code-share-message', data);
+    io.sockets.emit('code-share-message', data);
   });
 
-  // handel disconnect
-  socket.on('disconnect', function () {
-    users.splice(users.findIndex(e => e.id === socket.id), 1);
-    socket.emit('username', users);
-  });
+
 
 });
