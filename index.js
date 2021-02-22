@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
 
   //message
   socket.on('code-share-message', function (data) {
-    socket.emit('code-share-message', data);
+    io.emit('code-share-message', data);
     
   });
 
