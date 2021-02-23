@@ -5,20 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iamshaunjp/websockets-playlist.git"
   },
-  "author": "Himanshu",
+  "author": "The Net Ninja",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/iamshaunjp/websockets-playlist/issues"
   },
   "homepage": "https://github.com/iamshaunjp/websockets-playlist#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "express": "^4.15.2",
     "socket.io": "^1.7.3"
   },
