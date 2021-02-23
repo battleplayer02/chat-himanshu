@@ -1,6 +1,6 @@
 var express = require('express');
 var socket = require('socket.io');
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 3000
 // App setup
 var app = express();
 var server = app.listen(port, function () {
@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
 
   //message
   socket.on('code-share-message-to-server', function (data) {
-    socket.broadcast.emit('code-share-message', data);
+    socket.emit('code-share-message', data);
   });
 
 });
