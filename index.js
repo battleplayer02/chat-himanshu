@@ -32,8 +32,6 @@ app.use(function (req, res, next) {
 
 // Socket setup & pass server
 var io = socket(server);
-
-
 var users = [];
 io.on('connection', (socket) => {
 
