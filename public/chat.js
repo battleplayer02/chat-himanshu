@@ -1,7 +1,6 @@
 // Make connection
 var socket = io.connect('https://chat-himanshu.herokuapp.com/');
 
-
 // Query DOM
 var message = document.getElementById('message'),
       handle = document.getElementById('handle'),
