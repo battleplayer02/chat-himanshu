@@ -1,6 +1,6 @@
 var express = require('express');
 var socket = require('socket.io');
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4000
 // App setup
 var app = express();
 var server = app.listen(port, function () {
@@ -32,6 +32,10 @@ app.use(function (req, res, next) {
 
 // Socket setup & pass server
 var io = socket(server);
+
+app.get('/socketiousers',(req,res)=>{
+  res.send(io);
+})
 var users = [];
 io.on('connection', (socket) => {
 
