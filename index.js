@@ -33,9 +33,7 @@ app.use(function (req, res, next) {
 // Socket setup & pass server
 var io = socket(server);
 
-app.get('/socketiousers',(req,res)=>{
-  res.send(io);
-})
+
 var users = [];
 io.on('connection', (socket) => {
 
