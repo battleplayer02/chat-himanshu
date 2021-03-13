@@ -87,7 +87,7 @@ io.on('connection', (socket) => {
 //API for crossword
 
 app.get('/api/crossword', (req, res) => {
-  res.send("hello")
+  res.send(request.body)
 })
 
 
