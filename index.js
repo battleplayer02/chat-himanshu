@@ -90,7 +90,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/api/crossword', (req, res) => {
-  res.send(req.body)
+  res.send(req)
 })
 
 
