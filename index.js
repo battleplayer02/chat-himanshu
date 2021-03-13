@@ -7,6 +7,8 @@ var server = app.listen(port, function () {
   console.log('listening for requests on port 4000,');
 });
 
+
+
 // Static files
 app.use(express.static('public'));
 
@@ -75,3 +77,37 @@ io.on('connection', (socket) => {
   });
 
 });
+
+
+
+
+
+
+
+//API for crossword
+
+app.get('/api/crossword', (req, res) => {
+  res.send("hello")
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
