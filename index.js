@@ -1,5 +1,6 @@
 var express = require('express');
 var socket = require('socket.io');
+var bodyParser = require('body-parser');
 const port = process.env.PORT || 3000
 // App setup
 var app = express();
@@ -85,6 +86,8 @@ io.on('connection', (socket) => {
 
 
 //API for crossword
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/api/crossword', (req, res) => {
   res.send(request.body)
