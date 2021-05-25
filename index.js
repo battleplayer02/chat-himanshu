@@ -59,22 +59,22 @@ io.on('connection', (socket) => {
 
   //html sync
   socket.on('xml', function (data) {
-    socket.broadcast.emit('xml-data', data);
+    io.sockets.emit('xml-data', data);
   });
 
   //css sync
   socket.on('css', function (data) {
-    socket.broadcast.emit('css-data', data);
+    io.sockets.emit('css-data', data);
   });
 
   //javascript sync
   socket.on('javascript', function (data) {
-    socket.broadcast.emit('javascript-data', data);
+    io.sockets.emit('javascript-data', data);
   });
 
   //message
   socket.on('code-share-message-to-server', function (data) {
-    socket.broadcast.emit('code-share-message', data);
+   io.sockets.emit('code-share-message', data);
   });
 
 });
