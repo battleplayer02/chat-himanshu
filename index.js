@@ -54,28 +54,25 @@ io.on('connection', (socket) => {
   //code-share
   socket.on('username', function (data) {
     users.push(data);
-    io.sockets.emit('username-new', users);
+    io.sockets.emit('username', users);
   });
 
   //html sync
   socket.on('xml', function (data) {
-    io.sockets.emit('xml-data', data);
+    io.sockets.emit('html', data);
   });
 
   //css sync
   socket.on('css', function (data) {
-    io.sockets.emit('css-data', data);
+    io.sockets.emit('css', data);
   });
 
   //javascript sync
   socket.on('javascript', function (data) {
-    io.sockets.emit('javascript-data', data);
+    io.sockets.emit('javascript', data);
   });
 
-  //message
-  socket.on('code-share-message-to-server', function (data) {
-   io.sockets.emit('code-share-message', data);
-  });
+
 
 });
 
